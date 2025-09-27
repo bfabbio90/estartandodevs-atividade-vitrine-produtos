@@ -1,73 +1,79 @@
-# React + TypeScript + Vite
+# Minha Loja React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto simples de uma **vitrine de produtos** desenvolvido com **React + TypeScript + Vite**.  
+O objetivo é praticar componentes, props, renderização de listas, lógica condicional, filtro e ordenação de produtos.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 Tecnologias Utilizadas
 
-## React Compiler
+- React
+- TypeScript
+- Vite
+- CSS puro
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 💡 Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **Exibição de produtos**
+   - Cada produto é exibido em um card (`CardProduto`) mostrando:
+     - Imagem
+     - Nome
+     - Categoria
+     - Preço
+     - Promoção (se houver)
+     - Botão de compra com estado “Produto Esgotado” se fora de estoque
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2. **Renderização dinâmica**
+   - A lista de produtos é renderizada a partir de um array usando `.map()`.
+   - Cada item recebe uma prop `key` para otimização do React.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+3. **Lógica de promoção**
+   - Produtos com `precoPromocional` exibem:
+     - Selo “Promoção!”
+     - Preço antigo riscado
+     - Preço novo destacado
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+4. **Lógica de estoque**
+   - Produtos fora de estoque adicionam a classe `.esgotado`.
+   - Botão de compra fica desabilitado e mostra “Produto Esgotado”.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+5. **Filtro por categoria**
+   - Botões de categoria permitem filtrar os produtos exibidos na vitrine.
+   - Botão “Todas” exibe todos os produtos.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+6. **Ordenação de preços**
+   - Botão “Ordenar por Preço” organiza os produtos do mais barato para o mais caro.
+   - Clicando novamente, retorna à ordem original.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## 📂 Estrutura do Projeto
+
+src/
+┃ ┣ components/
+┃ ┗ CardProduto.tsx
+┣ dados_produtos.ts
+┣ App.tsx
+┣ App.css
+┗ main.tsx
+
+
+- **CardProduto.tsx** – Componente funcional que exibe os detalhes de cada produto.
+- **dados_produtos.ts** – Array de produtos com informações como nome, categoria, preço, promoção e estoque.
+- **App.tsx** – Componente principal que renderiza a vitrine, filtros e ordenação.
+- **App.css** – Estilização dos cards, vitrine e botões.
+- **main.tsx** – Ponto de entrada do React com Vite.
+
+---
+
+## 🚀 Como Executar o Projeto
+
+1. **Instale as dependências:**
+
+```bash
+npm install
+
+1. **Execute o projeto:**
+npm run dev
