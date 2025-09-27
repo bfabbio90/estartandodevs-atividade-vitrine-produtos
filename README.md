@@ -50,7 +50,7 @@ O objetivo é praticar componentes, props, renderização de listas, lógica con
 ---
 
 ## 📂 Estrutura do Projeto
-
+```
 src/
 ┃ ┣ components/
 ┃ ┗ CardProduto.tsx
@@ -58,6 +58,7 @@ src/
 ┣ App.tsx
 ┣ App.css
 ┗ main.tsx
+```
 
 
 - **CardProduto.tsx** – Componente funcional que exibe os detalhes de cada produto.
@@ -74,6 +75,9 @@ src/
 
 ```bash
 npm install
+```
 
 1. **Execute o projeto:**
+```bash
 npm run dev
+```
