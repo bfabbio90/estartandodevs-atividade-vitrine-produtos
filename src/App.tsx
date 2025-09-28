@@ -37,7 +37,7 @@ function App() {
 
       <main className="vitrine">
         {produtosFiltrados.map((item) => (
-          <CardProduto key={item.id} produto={item} />
+          <CardProduto key={item.id} {...item} />
         ))}
       </main>
     </div>
