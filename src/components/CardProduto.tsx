@@ -8,9 +8,8 @@ interface Produto {
   emEstoque: boolean;
 }
 
-export function CardProduto(props: { produto: Produto }) {
-  const produto = props.produto;
-
+export function CardProduto(props: Produto) {
+  const produto = props;
   const classeCard = produto.emEstoque ? "card-produto" : "card-produto esgotado";
 
   return (
